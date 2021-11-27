@@ -1,0 +1,108 @@
+
+
+<div class="wrapper">
+  <div class="left">
+ 
+  <h1>{{ listing.name1}}</h1>     
+      <h4></h4>
+  </div>
+
+  <div class="right">
+      <div class="info">
+        
+          <h3>AccNo- {{listing.accno}}</h3>
+          <div class="info_data">
+              <div class="data">
+                  <h4>Adhar card</h4>
+                  <h6>{{ listing.adhar }}</h6>
+              </div>
+              <div class="data">
+                  <h4>Phone</h4>
+                  <h6>{{ listing.locality }}</h6>
+              </div>
+          </div>
+      </div>
+
+      <div class="projects">
+          <h3>IFSC</h3>
+          <div class="projects_data">
+              <div >
+                  <h4>{{ listing.ifsc}}</h4>
+              </div>
+              <div class="data">
+                  <h4>Address</h4>
+                  <h6>{{ listing.details}}</h6>
+
+              </div>
+             
+          </div>
+      </div>
+      
+
+  </div>
+
+
+ 
+</div>
+
+<div class="button121">
+
+  <button *ngIf="userService.loggedIn()" (click)="showEdit()" class="button456">Change Details</button>
+  
+  <button
+  *ngIf="userService.loggedIn()"
+  class="btn-delete button789"
+  (click)="removeListing()" 
+  >Remove</button>
+</div>
+
+
+<div class="form-wrrap" *ngIf="showForm">
+  <h3>Edit User details</h3>
+  <form [formGroup]="editListingForm" (ngSubmit)="editListing()">
+    <input
+      type="text"
+      placeholder="Enter your name"
+      [(ngModel)]="listing.name1"
+      formControlName="name1"
+    />
+    <input
+      type="text"
+      placeholder="Enter Acc no"
+      [(ngModel)]="listing.accno"
+      formControlName="accno"
+    />
+
+    <input
+      type="text"
+      placeholder="Enter IFSC no"
+      [(ngModel)]="listing.ifsc"
+      formControlName="ifsc"
+    />
+    <input
+      type="text"
+      placeholder="Enter your Phone num"
+      [(ngModel)]="listing.locality"
+      formControlName="locality"
+    />
+    <input
+      type="text"
+      placeholder="Enter your Adhar num"
+      [(ngModel)]="listing.adhar"
+      formControlName="adhar"
+    />
+    <input
+      type="text"
+      placeholder="Enter your Address"
+      [(ngModel)]="listing.details"
+      formControlName="details"
+    />
+    <input
+      type="submit"
+      value="Add Listing"
+      [disabled]="!editListingForm.valid"
+    />
+  </form>
+</div>
+
+

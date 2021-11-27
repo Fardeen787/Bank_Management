@@ -1,0 +1,22 @@
+ <div>
+  <!-- <img src="../../../assets/grey.jpg"> -->
+  <div class="form-wrrap">
+    <h3 class="new">Add New Customers</h3>
+    <form [formGroup]="listingForm" (ngSubmit)="newListing()">
+      <input type="text" placeholder="Enter your Name" formControlName="name1" />
+      <input type="text" placeholder="Enter your Acc no" formControlName="accno" />
+      <input type="text" placeholder="Enter your IFSC no" formControlName="ifsc" />
+      <input
+      type="text"
+      placeholder="Enter your Phone number"
+      formControlName="locality"
+      />
+      <input type="text" placeholder="Enter your Adhar number" formControlName="adhar" />
+      <input type="text" placeholder="Enter your Address" formControlName="details" />
+      <div class="button121">
+        <input type="submit" value="Add Listing" [disabled]="!listingForm.valid"  />
+      </div>
+    </form>
+  </div>
+</div>
+  
